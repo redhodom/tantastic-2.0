@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Product Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"> 
+            <img src="bgpic.png" alt="Brand Logo">
+        </div>
+        <div class="description-container">
+            <h1>Welcome to Our Store</h1>
+            <p>Your one-stop destination for the best products.</p>
+        </div>
+    </header>
+    <div class="product-container">
+        <div class="product-image">
+            <div class="slideshow-container">
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <img class="slides" src="soap1.jpeg" alt="Product Image 1">
+                <img class="slides" src="soapbox.jpg" alt="Product Image 2">
+                <img class="slides" src="soap4.jpg" alt="Product Image 3">
+                <img class="slides" src="soap5.jpg" alt="Product Image 4">
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+        </div>
+        <div class="product-details">
+            <h2>Awesome Product</h2>
+            <p class="price">&#8377; 70.00</p>
+            <p class="description">This is an amazing product that you will love! It comes with awesome features and top-notch quality.</p>
+            <button class="buy-now"><i class="fas fa-bolt"></i> Buy It Now</button>
+            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+        </div>
+    </div>
+    
+    <script>
+        let index = 0;
+        let slides = document.getElementsByClassName("slides");
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[index].style.display = "block";
+        }
+        
+        function changeSlide(direction) {
+            index += direction;
+            if (index >= slides.length) { index = 0; }
+            if (index < 0) { index = slides.length - 1; }
+            showSlides();
+        }
+
+        showSlides();
+    </script>
+</body>
+</html>
